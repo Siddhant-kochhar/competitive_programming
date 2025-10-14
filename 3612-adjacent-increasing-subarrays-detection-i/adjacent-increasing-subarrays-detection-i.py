@@ -1,5 +1,3 @@
-from typing import List
-
 class Solution:
     def hasIncreasingSubarrays(self, nums: List[int], k: int) -> bool:
         current_length = 1
