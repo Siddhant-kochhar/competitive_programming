@@ -13,12 +13,19 @@ class Bank:
 
     def deposit(self, account: int, money: int) -> bool:
         if 1 <= account <= len(self.balance):
-            self.balance[account - 1] += money
+            self.balance[account-1] += money
             return True
-        return False   # <-- added fallback return
-
+        return False
     def withdraw(self, account: int, money: int) -> bool:
         if 1 <= account <= len(self.balance) and self.balance[account - 1] >= money:
-            self.balance[account - 1] -= money
-            return True
-        return False    # <-- added fallback return
+            if self.balance[account-1] >= money:
+                self.balance[account-1] -= money
+                return True
+        
+        return False
+
+# Your Bank object will be instantiated and called as such:
+# obj = Bank(balance)
+# param_1 = obj.transfer(account1,account2,money)
+# param_2 = obj.deposit(account,money)
+# param_3 = obj.withdraw(account,money)
