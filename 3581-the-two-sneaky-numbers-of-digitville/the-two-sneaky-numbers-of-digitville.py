@@ -1,10 +1,10 @@
 class Solution:
     def getSneakyNumbers(self, nums: List[int]) -> List[int]:
-        from collections import Counter
-
-        nums_dict = Counter(nums)
+        seen = set()
         res = []
-        for key,value in nums_dict.items():
-            if value == 2:
-                res.append(key)
+        for i in nums:
+            if i in seen:
+                res.append(i)
+            else:
+                seen.add(i)
         return res
