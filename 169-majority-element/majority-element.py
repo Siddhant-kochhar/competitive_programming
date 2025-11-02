@@ -1,11 +1,12 @@
 
-from collections import Counter
+from collections import defaultdict
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        count = Counter(nums)
+        seen = defaultdict(int)
         n = len(nums)
-        
-        for num, freq in count.items():
-            if freq > n // 2:
-                return num
+        for i in nums:
+            seen[i] += 1
+        for key,value in seen.items():
+            if value > n // 2:
+                return key 
