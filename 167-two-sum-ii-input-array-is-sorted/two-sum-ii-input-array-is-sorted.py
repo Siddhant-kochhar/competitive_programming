@@ -4,9 +4,10 @@ class Solution:
         j = len(numbers) - 1
 
         while i < j:
-            if numbers[i] + numbers[j] == target:
+            current_sum = numbers[i]+numbers[j]
+            if current_sum == target:
                 return([i + 1, j + 1])
-            elif numbers[i] + numbers[j] < target:
+            elif current_sum < target:
                 i += 1
             else:
                 j -= 1
